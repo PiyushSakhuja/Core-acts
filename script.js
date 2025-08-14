@@ -1,4 +1,4 @@
- // Smooth scroll to next section
+
     document.querySelector('.scroll-down').addEventListener('click', () => {
       window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
     });
@@ -241,7 +241,7 @@
       feather.replace();
     }
 
-    // Tab switching
+    
     document.querySelectorAll("[data-tab]").forEach(btn => {
       btn.addEventListener("click", () => {
         activeTab = btn.getAttribute("data-tab");
@@ -255,13 +255,13 @@
       });
     });
 
-    // Search
+  
     document.getElementById("searchInput").addEventListener("input", (e) => {
       searchTerm = e.target.value.toLowerCase();
       renderTable();
     });
 
-    // Sorting
+   
     document.querySelectorAll(".sort-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const key = btn.getAttribute("data-key");
