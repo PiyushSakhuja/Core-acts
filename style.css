@@ -1,13 +1,15 @@
 :root {
  
-  --blue-900: #001F54;
+  /* --blue-900: #001F54; */
+  --blue-900: #CAF0F8;
   --blue-800: #003F87;
   --blue-700: #005FA3;
   --blue-600: #007FBA;
   --blue-500: #009FDA;
   --blue-400: #33CFFF;
   --blue-300: #66E0FF;
-  --blue-200: #99EEFF;
+  /* --blue-200: #99EEFF; */
+  --blue-200: #1457a4;
 
   
   --color-bg: var(--blue-900);
@@ -165,7 +167,7 @@ a {
 }
 
 .objective-card {
-  background: rgba(0, 31, 84, 0.8); 
+  background: rgb(85 147 255 / 33%);
   border: 1px solid rgba(0, 159, 218, 0.2); 
   padding: 20px;
   border-radius: 12px;
@@ -386,7 +388,7 @@ a {
 }
 
 .card-content {
-  background: var(--blue-900);
+  background: rgb(180 219 230 / 84%);
   backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 32px;
@@ -538,7 +540,7 @@ a {
 
 
 .card-content {
-  background: rgba(22, 20, 37, 0.8);
+  background:rgb(180 219 230 / 84%);
   backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 32px;

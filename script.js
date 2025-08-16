@@ -224,7 +224,7 @@
         </td>
         <td class="p-4">
           <div class="flex items-center justify-between group">
-            <span class="text-gray-200 group-hover:text-blue-400 transition-colors duration-200">${item.title}</span>
+            <span class="text-black group-hover:text-blue-400 transition-colors duration-200">${item.title}</span>
             <i data-feather="external-link" class="w-4 h-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></i>
           </div>
         </td>
