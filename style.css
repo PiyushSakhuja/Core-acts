@@ -720,7 +720,7 @@ a {
 .timeline-card {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(18, 18, 18, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(43, 71, 117, 0.8) 0%, rgba(71, 123, 243, 0.9) 100%);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -731,7 +731,7 @@ a {
   left: -100%;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(207, 102, 121, 0.8), rgba(187, 134, 252, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(29, 65, 247, 0.8), rgba(93, 131, 243, 0.8), transparent);
   transition: 0.5s;
   animation: shine 3s infinite;
 }
@@ -741,7 +741,7 @@ a {
 }
 
 .highlight-text {
-  background: linear-gradient(90deg, #BB86FC, #CF6679, #BB86FC);
+  background: linear-gradient(90deg, #4e02fe, #1b97fc, #5c8df6f3);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -760,7 +760,7 @@ a {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(45deg, #BB86FC, #CF6679, #03DAC6);
+  background: linear-gradient(45deg, #5c5ff6, #4351eb, #637df1);
   z-index: -1;
   border-radius: inherit;
   opacity: 0;
@@ -802,5 +802,5 @@ a {
   left: 0;
   right: 0;
   height: 20px;
-  background: linear-gradient(to bottom, rgba(187, 134, 252, 0.5), transparent);
+  background: linear-gradient(to bottom, rgba(99, 102, 241, 0.5), transparent);
 }
