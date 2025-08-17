@@ -1,5 +1,5 @@
 :root {
- 
+
   /* --blue-900: #001F54; */
   --blue-900: #CAF0F8;
   --blue-800: #003F87;
@@ -11,7 +11,7 @@
   /* --blue-200: #99EEFF; */
   --blue-200: #1457a4;
 
-  
+
   --color-bg: var(--blue-900);
   --color-text: #ffffff;
   --color-primary: var(--blue-600);
@@ -25,6 +25,7 @@
   --radius: 8px;
   --transition: all 0.3s ease;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +33,7 @@
 }
 
 body {
- background-color: var(--color-bg);
+  background-color: var(--color-bg);
   color: var(--color-text);
   font-family: Arial, sans-serif;
   overflow-x: hidden;
@@ -44,13 +45,18 @@ a {
 
 
 .container {
+  position: relative;
+  display: flex;
   max-width: 1200px;
   margin: auto;
-  padding: 0 20px;
+  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
- padding: 12px 24px;
+  padding: 12px 24px;
   border-radius: var(--radius);
   font-weight: bold;
   font-size: 1rem;
@@ -62,11 +68,9 @@ a {
 }
 
 .btn-primary {
-   background: linear-gradient(
-    to right,
-    var(--color-primary-gradient-start),
-    var(--color-primary-gradient-end)
-  );
+  background: linear-gradient(to right,
+      var(--color-primary-gradient-start),
+      var(--color-primary-gradient-end));
   color: var(--color-text);
 }
 
@@ -77,12 +81,12 @@ a {
 
 .btn-outline {
   border: 1px solid var(--color-outline);
-  background: rgba(0, 159, 218, 0.05); 
+  background: rgba(0, 159, 218, 0.05);
   color: var(--color-outline-text);
 }
 
 .btn-outline:hover {
- background: rgba(0, 159, 218, 0.1);
+  background: rgba(0, 159, 218, 0.1);
 }
 
 
@@ -98,12 +102,11 @@ a {
 
 .hero h1 {
   font-size: 3rem;
-  background: linear-gradient(
-    to right,
-    var(--blue-400),
-    var(--blue-500),
-    var(--blue-300)
-  );
+  /* background: linear-gradient(to right,
+      var(--blue-400),
+      var(--blue-500),
+      var(--blue-300)); */
+  background: darkblue;
   -webkit-background-clip: text;
   color: transparent;
   font-weight: bold;
@@ -112,7 +115,7 @@ a {
 
 .hero p {
   font-size: 1.2rem;
-  color: var(--blue-200); 
+  color: var(--blue-200);
   max-width: 700px;
   margin-bottom: 2rem;
 }
@@ -127,9 +130,12 @@ a {
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -142,19 +148,18 @@ a {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  background: linear-gradient(
-    to right,
-    var(--blue-400),
-    var(--blue-500),
-    var(--blue-300)
-  );
+  /* background: linear-gradient(to right,
+      var(--blue-400),
+      var(--blue-500),
+      var(--blue-300)); */
+  background-color: darkblue;
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .section-subtitle {
   text-align: center;
-  color: var(--blue-200); 
+  color: var(--blue-200);
   max-width: 600px;
   margin: auto;
   margin-bottom: 2rem;
@@ -168,7 +173,7 @@ a {
 
 .objective-card {
   background: rgb(85 147 255 / 33%);
-  border: 1px solid rgba(0, 159, 218, 0.2); 
+  border: 1px solid rgba(0, 159, 218, 0.2);
   padding: 20px;
   border-radius: 12px;
   transition: var(--transition);
@@ -183,11 +188,9 @@ a {
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(
-    to right,
-    var(--blue-500),
-    var(--blue-400)
-  );
+  background: linear-gradient(to right,
+      var(--blue-500),
+      var(--blue-400));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,11 +214,11 @@ a {
 }
 
 .stat-card {
-  background: var(--blue-900);
+  background: #a9dfeb;
   padding: 20px;
   border-radius: 12px;
   text-align: center;
-  border: 1px solid rgba(0, 159, 218, 0.2);
+  border: 1px solid rgba(0, 159, 218, 1);
   transition: var(--transition);
 }
 
@@ -268,11 +271,9 @@ a {
 .event-card h4 {
   font-size: 1.2rem;
   margin: 15px;
-  background: linear-gradient(
-    to right,
-    var(--blue-400),
-    var(--blue-500)
-  );
+  background: linear-gradient(to right,
+      var(--blue-400),
+      var(--blue-500));
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -286,11 +287,9 @@ a {
 
 
 .cta {
-  background: linear-gradient(
-    to right,
-    rgba(0, 159, 218, 0.1),
-    rgba(0, 122, 204, 0.1)
-  );
+  background: linear-gradient(to right,
+      rgba(0, 159, 218, 0.1),
+      rgba(0, 122, 204, 0.1));
   border: 1px solid rgba(0, 159, 218, 0.2);
   border-radius: 16px;
   padding: 40px;
@@ -304,9 +303,8 @@ a {
   height: 39px;
   background: rgba(0, 159, 218, 0.1);
   border-radius: 4px;
-  border: 1px solid rgba(0, 159, 218, 0.2);
+  border: 1px solid rgba(0, 159, 218, 1);
   margin-bottom: 20px;
-  margin-left: 65vh;
   text-align: center;
   color: var(--blue-400);
 }
@@ -317,11 +315,9 @@ a {
   border-radius: 20px;
   padding: 2rem;
   border: 1px solid rgba(0, 159, 218, 0.2);
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 159, 218, 0.05),
-    rgba(0, 122, 204, 0.05)
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 159, 218, 0.05),
+      rgba(0, 122, 204, 0.05));
   color: var(--blue-100);
   max-width: 1200px;
   margin: auto;
@@ -332,11 +328,9 @@ a {
   font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
-  background: linear-gradient(
-    to right,
-    var(--blue-400),
-    var(--blue-500)
-  );
+  background: linear-gradient(to right,
+      var(--blue-400),
+      var(--blue-500));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 2rem;
@@ -372,11 +366,9 @@ a {
 .card-glow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 159, 218, 0.1),
-    rgba(0, 122, 204, 0.1)
-  );
+  background: linear-gradient(to right,
+      rgba(0, 159, 218, 0.1),
+      rgba(0, 122, 204, 0.1));
   border-radius: 12px;
   filter: blur(12px);
   opacity: 0;
@@ -410,11 +402,9 @@ a {
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(
-    to right,
-    var(--blue-400),
-    var(--blue-500)
-  );
+  background: linear-gradient(to right,
+      var(--blue-400),
+      var(--blue-500));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -459,26 +449,28 @@ a {
 .bottom-circle {
   bottom: 0;
   left: 25%;
-  background: rgba(0, 122, 204, 0.2); 
+  background: rgba(0, 122, 204, 0.2);
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 0.6;
   }
+
   50% {
     opacity: 1;
   }
 }
 
 
-.container {
+/* .container {
   position: relative;
   max-width: 1200px;
   margin: auto;
   z-index: 1;
-}
+} */
 
 .section-header {
   text-align: center;
@@ -488,10 +480,10 @@ a {
 .tag {
   display: inline-block;
   padding: 8px 16px;
-  background: rgba(0, 159, 218, 0.1); 
+  background: rgba(0, 159, 218, 0.1);
   border-radius: 9999px;
   border: 1px solid rgba(0, 159, 218, 0.2);
-  color: #00aaff; 
+  color: #00aaff;
   font-weight: 500;
   margin-bottom: 16px;
 }
@@ -540,7 +532,7 @@ a {
 
 
 .card-content {
-  background:rgb(180 219 230 / 84%);
+  background: rgb(180 219 230 / 84%);
   backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 32px;
@@ -665,6 +657,7 @@ a {
     opacity: 0;
     filter: blur(5px);
   }
+
   100% {
     opacity: 1;
     filter: blur(0);
@@ -672,18 +665,24 @@ a {
 }
 
 @keyframes neonPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 5px rgba(0, 159, 218, 0.5), 0 0 10px rgba(0, 159, 218, 0.5);
   }
+
   50% {
     box-shadow: 0 0 20px rgba(0, 159, 218, 0.8), 0 0 30px rgba(0, 159, 218, 0.6);
   }
 }
 
 @keyframes floatingDot {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -693,6 +692,7 @@ a {
   0% {
     background-position: 0% 50%;
   }
+
   100% {
     background-position: 100% 50%;
   }
@@ -702,6 +702,7 @@ a {
   0% {
     box-shadow: 0 4px 20px rgba(0, 159, 218, 0.3);
   }
+
   100% {
     box-shadow: 0 8px 30px rgba(0, 159, 218, 0.5);
   }
@@ -803,4 +804,19 @@ a {
   right: 0;
   height: 20px;
   background: linear-gradient(to bottom, rgba(99, 102, 241, 0.5), transparent);
+}
+
+.container-stat {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  z-index: 1;
+}
+
+.start {
+  padding: 8px 16px;
+  background: rgb(82 128 230 / 37%);
+  border-radius: 50px;
+  border: 1px solid rgba(37, 99, 235, 1);
+  margin-bottom: 20px;
 }
