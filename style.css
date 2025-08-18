@@ -820,3 +820,23 @@ a {
   border: 1px solid rgba(37, 99, 235, 1);
   margin-bottom: 20px;
 }
+
+.timeline-item {
+  opacity: 0;
+  transform: translateX(0);
+  transition: all 0.8s ease-out;
+}
+
+.timeline-item.slide-in-left {
+  transform: translateX(-60px);
+}
+
+/* Slide in from right */
+.timeline-item.slide-in-right {
+  transform: translateX(60px);
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
