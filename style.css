@@ -45,6 +45,42 @@ a {
   align-items: center;
   justify-content: center;
 }
+ /* Hero Section */
+.global-research-text {
+  color: #2463eb;
+}
+
+.icon-margin-left {
+  margin-left: 8px;
+}
+
+.btn-join-us {
+  margin-left: 10px;
+}
+
+.lottie-player-style {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+}
+
+/* Container Padding */
+.container-padding-vertical {
+  padding: 60px 0;
+}
+
+/* Container Text Center */
+.container-text-center {
+  text-align: center;
+}
+
+/* Map Image */
+.map-image {
+  width: 157vh;
+  filter: invert();
+}
+
+
 
 /* ================= Buttons ================= */
 .btn {
