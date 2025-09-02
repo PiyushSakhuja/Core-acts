@@ -892,7 +892,246 @@ a {
   }
 }
 
+/* Section */
+.timeline-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
 
+.timeline-section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* Timeline Container */
+.timeline-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-content {
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-header {
+  margin-bottom: 3rem;
+}
+
+.timeline-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-subtitle {
+  font-size: 1.125rem;
+  color: #666;
+}
+
+/* Timeline Line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #ddd;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.timeline-line-gradient {
+  background: linear-gradient(to bottom, #00c6ff, #0072ff);
+  width: 100%;
+  height: 100%;
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  margin: 2rem 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.timeline-item-content {
+  width: 50%;
+  padding: 1rem;
+}
+
+.timeline-item-content.left {
+  padding-right: 3rem;
+  text-align: right;
+}
+
+.timeline-item-content.right {
+  margin-left: auto;
+  padding-left: 3rem;
+  text-align: left;
+}
+
+/* Dot */
+.timeline-dot {
+  position: absolute;
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.timeline-dot-inner {
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 3px solid #0072ff;
+  border-radius: 50%;
+}
+
+/* Card */
+.timeline-card {
+  background-color: #1a1a1a;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 114, 255, 0.5);
+}
+
+.neon-gradient-border {
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 0.75rem;
+  position: relative;
+}
+
+.neon-gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+/* Badges */
+.year-badge {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.amount-badge {
+  display: inline-flex;
+  align-items: center
+}
+/* Icon inside amount badge */
+.amount-badge svg.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  color: #00c6ff;
+}
+
+/* Description inside each card */
+.timeline-description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Tags */
+.tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.tag {
+  background-color: #0072ff;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+/* Animation classes */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Highlight Text (used in title) */
+.highlight-text {
+  color: #00c6ff;
+  font-weight: bold;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 768px) {
+  .timeline-item-content,
+  .timeline-item-content.left,
+  .timeline-item-content.right {
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+  }
+
+  .timeline-dot {
+    left: 20px;
+    transform: none;
+  }
+
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    padding-left: 40px;
+  }
+
+  .tags {
+    justify-content: flex-start;
+  }
+}
+
+/* Particle background fix if needed */
+.bg-particle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
 
 .timeline-item {
   opacity: 0;
