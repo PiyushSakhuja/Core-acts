@@ -9,7 +9,10 @@ import "./App.css";
 function App() {
   useEffect(() => {
     AOS.init({ duration: 1000 });
+    once: true
   }, []);
+
+ 
   return (
     <>
       <section className="hero">
@@ -186,7 +189,7 @@ function App() {
                 </div>
               </div>
 
-              {/* Card 2 */}
+             
               <div className="faculty-card" data-aos="fade-right" data-aos-delay="100">
                 <div className="hover-bg"></div>
                 <div className="card-content">
@@ -220,6 +223,167 @@ function App() {
         </section>
       </section>
 
+
+     
+
+      <section className="container-stat container container-padding-vertical">
+        <div className="stats">
+          <div className="stat-card" data-aos="zoom-in" data-aos-delay="100">
+            <i className="fa-solid fa-bullseye"></i>
+            <h3>100+</h3>
+            <p>Active Projects</p>
+          </div>
+
+          <div className="stat-card" data-aos="zoom-in" data-aos-delay="200">
+            <i className="fa-solid fa-globe"></i>
+            <h3>10+</h3>
+            <p>Partner Countries</p>
+          </div>
+
+          <div className="stat-card" data-aos="zoom-in" data-aos-delay="300">
+            <i className="fa-solid fa-award"></i>
+            <h3>$25M+</h3>
+            <p>Research Funding</p>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="publications-section">
+        <div className="publications-container">
+          
+          <div className="section-header" data-aos="fade-up">
+            <h2 className="section-title">Research Publications</h2>
+            <p className="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+              Explore our latest research contributions and academic publications
+            </p>
+          </div>
+
+          
+          <div
+            className="search-box"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <i
+              data-feather="search"
+              className="search-icon"
+            ></i>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search publications..."
+              className="search-input"
+            />
+          </div>
+
+          
+          <div
+            className="tabs"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <button className="tab tab-active" data-tab="journals">Journal Papers</button>
+            <button className="tab tab-inactive" data-tab="books">Books/Book Chapters</button>
+            <button className="tab tab-inactive" data-tab="conferences">Conference Papers</button>
+          </div>
+
+          
+          <div
+            className="table-wrapper"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div className="table-container">
+              <table id="pubTable">
+                <thead>
+                  <tr>
+                    <th className="sortable" data-key="year">
+                      <div className="sort-header">
+                        <span>Year</span>
+                        <i data-feather="arrow-up-down"></i>
+                      </div>
+                    </th>
+                    <th className="sortable" data-key="title">
+                      <div className="sort-header">
+                        <span>Title</span>
+                        <i data-feather="arrow-up-down"></i>
+                      </div>
+                    </th>
+                    <th className="sortable" data-key="authors">
+                      <div className="sort-header">
+                        <span>Authors</span>
+                        <i data-feather="arrow-up-down"></i>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="pubBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     
+      <section className="container-stat container container-padding-vertical">
+        <h2 className="section-title" data-aos="zoom-in">
+          Events Organized By The Team
+        </h2>
+        <div className="events">
+          <div className="event-card" data-aos="fade-right" data-aos-delay="100">
+            <img src="images/event1.jpg" alt="Blockchain Technology" />
+            <h4>Blockchain Technology</h4>
+            <p>
+              CASC Under AICTE SPICES is glad to announce a session on
+              blockchain, covering hashing, proof of work, and more.
+            </p>
+          </div>
+          <div className="event-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="images/event2.jpg" alt="Computer Vision Syndrome" />
+            <h4>Computer Vision Syndrome</h4>
+            <p>
+              Insights about caring for your eyes from computers and measures to
+              improve health.
+            </p>
+          </div>
+          <div className="event-card" data-aos="fade-left" data-aos-delay="300">
+            <img
+              src="images/event3.jpg"
+              alt="Robotics and Embedded Systems"
+            />
+            <h4>Robotics and Embedded Systems</h4>
+            <p>
+              Workshop on Arduino and Embedded Systems with hands-on experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      
+      <section className="container">
+        <div className="cta" data-aos="fade-up">
+          <h2 className="section-title" data-aos="zoom-in">
+            Join Our Research Community
+          </h2>
+          <p
+            className="section-subtitle"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Connect with researchers worldwide and contribute to groundbreaking
+            innovations.
+          </p>
+          <a
+            href="#"
+            className="btn btn-primary"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            Join Us <i className="fa-solid fa-arrow-right" style={{ marginLeft: "8px" }}></i>
+          </a>
+        </div>
+      </section>
 
 
     </>
