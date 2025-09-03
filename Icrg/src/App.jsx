@@ -1,24 +1,62 @@
-import React, { useEffect } from "react";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "@lottiefiles/lottie-player";
 import "./App.css";
+import map from "./assets/map.png";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadFull } from "tsparticles";
+import React, { useEffect, useState } from "react";
+
+
 
 
 
 function App() {
   useEffect(() => {
-    AOS.init({ duration: 1000 });
-    once: true
+  AOS.init({
+    duration: 1000,
+    once: true, 
+  });
+}, []);
+
+
+  const [engineReady, setEngineReady] = useState(false);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadFull(engine);
+    }).then(() => setEngineReady(true));
   }, []);
 
- 
+
   return (
     <>
       <section className="hero">
         <div className="hero-shape"></div>
         <div className="hero-shape"></div>
-        <div id="hero-particles"></div>
+        
+      {/* Particles wrapper */}
+      <div id="hero-particles">
+        <Particles
+          id="tsparticles"
+          options={{
+            background: {
+              color: { value: "transparent" }, // ✅ No global background
+            },
+            fullScreen: {
+              enable: false, // ✅ VERY IMPORTANT (Prevents covering entire page)
+            },
+            particles: {
+              number: { value: 30 },
+               color: { value: "#2563eb" },
+              size: { value: 3 },
+              move: { enable: true, speed: 1 },
+              links: { enable: true, color: "#3498db" },
+            },
+          }}
+        />
+      </div>
         <div className="hero-circle left"></div>
         <div className="hero-circle right"></div>
 
@@ -132,7 +170,7 @@ function App() {
         </h2>
 
         <img
-          src="assets\map.png"
+          src={map}
           data-aos="fade-up"
           data-aos-delay="100"
           className="map-image"
@@ -189,7 +227,7 @@ function App() {
                 </div>
               </div>
 
-             
+
               <div className="faculty-card" data-aos="fade-right" data-aos-delay="100">
                 <div className="hover-bg"></div>
                 <div className="card-content">
@@ -224,7 +262,7 @@ function App() {
       </section>
 
 
-     
+
 
       <section className="container-stat container container-padding-vertical">
         <div className="stats">
@@ -251,7 +289,7 @@ function App() {
 
       <section className="publications-section">
         <div className="publications-container">
-          
+
           <div className="section-header" data-aos="fade-up">
             <h2 className="section-title">Research Publications</h2>
             <p className="section-subtitle" data-aos="fade-up" data-aos-delay="200">
@@ -259,7 +297,7 @@ function App() {
             </p>
           </div>
 
-          
+
           <div
             className="search-box"
             data-aos="fade-up"
@@ -277,7 +315,7 @@ function App() {
             />
           </div>
 
-          
+
           <div
             className="tabs"
             data-aos="fade-up"
@@ -288,7 +326,7 @@ function App() {
             <button className="tab tab-inactive" data-tab="conferences">Conference Papers</button>
           </div>
 
-          
+
           <div
             className="table-wrapper"
             data-aos="fade-up"
@@ -325,7 +363,7 @@ function App() {
         </div>
       </section>
 
-     
+
       <section className="container-stat container container-padding-vertical">
         <h2 className="section-title" data-aos="zoom-in">
           Events Organized By The Team
@@ -360,7 +398,7 @@ function App() {
         </div>
       </section>
 
-      
+
       <section className="container">
         <div className="cta" data-aos="fade-up">
           <h2 className="section-title" data-aos="zoom-in">
