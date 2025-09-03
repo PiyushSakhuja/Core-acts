@@ -8,7 +8,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import React, { useEffect, useState } from "react";
 import React from 'react';
-import TimelineSection from './components/TimelineSection';
+import TimelineSection from './assets/TimelineSection';
 
 
 
