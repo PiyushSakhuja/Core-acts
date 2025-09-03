@@ -7,7 +7,8 @@ import map from "./assets/map.png";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import React, { useEffect, useState } from "react";
-
+import React from 'react';
+import TimelineSection from './components/TimelineSection';
 
 
 
@@ -261,7 +262,7 @@ function App() {
         </section>
       </section>
 
-
+<TimelineSection />
 
 
       <section className="container-stat container container-padding-vertical">
