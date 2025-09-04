@@ -1,10 +1,43 @@
-import React, { useEffect } from 'react';
-import './TimelineSection.css'; // Move your styles here
+import React, { useEffect, useState, useRef } from 'react';
+import './App.css'; // Move your styles here
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import particlesJS from 'particles.js';
 
 const TimelineSection = () => {
+    const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
+  const [sortedData, setSortedData] = useState([]);
+  const timelineRefs = useRef([]);
+
+  const timelineData = [
+    {
+      year: '2024',
+      amount: 15000,
+      description:
+        'Strategic investments fueling our AI innovation pipeline and community growth initiatives.',
+      tags: ['AI Workshop Series', 'Annual Hackathon', 'Research Grants'],
+      side: 'left',
+      delay: '0.4s'
+    },
+    {
+      year: '2023',
+      amount: 12000,
+      description:
+        'Year of expansion with technical workshops and mentorship programs that shaped careers.',
+      tags: ['Technical Workshops', 'Mentorship Program'],
+      side: 'right',
+      delay: '0.8s'
+    },
+    {
+      year: '2022',
+      amount: 8000,
+      description:
+        'Our foundation year that established the core programs and community engagement.',
+      tags: ['Community Events', 'Learning Resources'],
+      side: 'left',
+      delay: '1.2s'
+    }
+  ];
   useEffect(() => {
     // Initialize AOS animations
     AOS.init();
@@ -41,76 +74,74 @@ const TimelineSection = () => {
         }
       }
     });
+  },[]);
 
-    // Scroll animation effects with parallax
-    const timelineItems = document.querySelectorAll('.timeline-item');
+   // Handle sorting logic
+  useEffect(() => {
+    let sorted = [...timelineData];
+    if (sortConfig.key) {
+      sorted.sort((a, b) => {
+        const aVal = a[sortConfig.key];
+        const bVal = b[sortConfig.key];
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.filter = 'blur(0)';
-          const ratio = entry.boundingClientRect.top / window.innerHeight;
-          const parallaxValue = ratio * 100;
-          entry.target.style.transform = `translateY(${parallaxValue * 0.2}px)`;
-        }
+        if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
+        if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
+        return 0;
       });
-    }, { threshold: 0.1 });
+      }
+    setSortedData(sorted);
+  }, [sortConfig]);
 
-    timelineItems.forEach(item => observer.observe(item));
+  // Setup IntersectionObserver and mouse parallax
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.filter = 'blur(0)';
+            const ratio = entry.boundingClientRect.top / window.innerHeight;
+            const parallaxValue = ratio * 100;
+            entry.target.style.transform = `translateY(${parallaxValue * 0.2}px)`;
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-    // Mouse parallax effect on cards
-    const cards = document.querySelectorAll('.timeline-card');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const x = e.clientX - card.getBoundingClientRect().left;
-        const y = e.clientY - card.getBoundingClientRect().top;
-        const centerX = card.offsetWidth / 2;
-        const centerY = card.offsetHeight / 2;
-        const angleX = (y - centerY) / 15;
-        const angleY = (centerX - x) / 15;
-
-        card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-      });
+    timelineRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
     });
 
-    return () => observer.disconnect(); // Cleanup
-  }, []);
+    return () => observer.disconnect();
+  }, [sortedData]);
 
-  const timelineData = [
-    {
-      year: '2024',
-      amount: '$15,000',
-      description:
-        'Strategic investments fueling our AI innovation pipeline and community growth initiatives.',
-      tags: ['AI Workshop Series', 'Annual Hackathon', 'Research Grants'],
-      side: 'left',
-      delay: '0.4s'
-    },
-    {
-      year: '2023',
-      amount: '$12,000',
-      description:
-        'Year of expansion with technical workshops and mentorship programs that shaped careers.',
-      tags: ['Technical Workshops', 'Mentorship Program'],
-      side: 'right',
-      delay: '0.8s'
-    },
-    {
-      year: '2022',
-      amount: '$8,000',
-      description:
-        'Our foundation year that established the core programs and community engagement.',
-      tags: ['Community Events', 'Learning Resources'],
-      side: 'left',
-      delay: '1.2s'
-    }
-  ];
+  const handleSort = (key) => {
+    setSortConfig((prev) => ({
+      key,
+      direction: prev.key === key && prev.direction === 'asc' ? 'desc' : 'asc'
+    }));
+  };
 
+  // Mouse parallax effect
+  const handleMouseMove = (e, index) => {
+    const card = timelineRefs.current[index];
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = card.offsetWidth / 2;
+    const centerY = card.offsetHeight / 2;
+    const angleX = (y - centerY) / 15;
+    const angleY = (centerX - x) / 15;
+
+    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+  };
+
+  const handleMouseLeave = (index) => {
+    const card = timelineRefs.current[index];
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+  };
+    
   return (
     <section className="timeline-section">
       <h2 className="timeline-section-title">Timeline</h2>
@@ -132,23 +163,36 @@ const TimelineSection = () => {
             </p>
           </div>
 
+             {/* Sorting Buttons */}
+          <div className="sort-controls" data-aos="fade-up" data-aos-delay="300">
+            <button className="sort-btn" onClick={() => handleSort('year')}>
+              Sort by Year
+            </button>
+            <button className="sort-btn" onClick={() => handleSort('amount')}>
+              Sort by Amount
+            </button>
+          </div>
+          
           <div className="timeline-container">
             <div className="timeline-line">
               <div className="timeline-line-gradient"></div>
             </div>
 
-            {timelineData.map((item) => (
+            {timelineData.map((item, index) => (
               <div
                 key={item.year}
                 className={`timeline-item slide-in-${item.side}`}
-                style={{ animationDelay: item.delay }}
+                style={{ animationDelay: item.delay, opacity: 0, filter: 'blur(5px)' }}
+                ref={(el) => (timelineRefs.current[index] = el)}
               >
                 <div className="timeline-dot">
                   <div className="timeline-dot-inner"></div>
                 </div>
 
                 <div className={`timeline-item-content ${item.side}`}>
-                  <div className="timeline-card neon-gradient-border">
+                  <div className="timeline-card neon-gradient-border"
+                    onMouseMove={(e) => handleMouseMove(e, index)}
+                    onMouseLeave={() => handleMouseLeave(index)}>
                     <div className="timeline-card-header">
                       <span className={`year-badge year-${item.year}`}>
                         {item.year}
@@ -166,7 +210,7 @@ const TimelineSection = () => {
                             clipRule="evenodd"
                           />
                         </svg>
-                        {item.amount}
+                        {item.amount.toLocaleString()}
                       </span>
                     </div>
 
