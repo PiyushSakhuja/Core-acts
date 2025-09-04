@@ -3,6 +3,7 @@ import './App.css'; // Move your styles here
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import particlesJS from 'particles.js';
+import Particles from "react-tsparticles";
 
 const TimelineSection = () => {
     const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
